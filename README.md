@@ -1,7 +1,7 @@
 # **TUGAS TM 4 PBO (CRUD DAN EXCEPTION)**
 ___
-## **Deskripsi Project:**
-Dalam project ini terdapat 3 kelas yakni kelas PBO_PertemuanKeempat sebagai tugas CRUD, kelas AnisaException sebagai tugas exception sederhana, dan kelas BelajarException yang berisi throws dan try catch dalam menangani masalah exception.
+## **_Deskripsi_:**
+Dalam proyek ini terdapat 5 kelas yakni kelas PBO_PertemuanKeempat sebagai tugas CRUD, kelas TryCatch sebagai kelas yang mengimplementasikan penggunaan Exception yang ditangani dengan try catch, kelas Throws sebagai kelas yang mengimplementasikan penggunaan Exception yang ditangani dengan Throws, serta kelas AnisaException sebagai kelas exception custom yang mengextends ArithmeticException. Dalam kelas TryCatch, Throws, dan AnisaException berisi studi kasus penanganan exception yang sama yakni mengenai ArithmeticException.
 ___
 ### **Informasi Tambahan**:
 
@@ -11,12 +11,12 @@ ___
 
 **PostgreSQL** berperan sebagai basis data yang menyimpan, mengatur, dan mengambil data yang digunakan dalam aplikasi yang dibuat menggunakan NetBeans.
 ___
-## **Class PBO_PertemuanKeempat**
+## **Kelas PBO_PertemuanKeempat**
 
 ### **Proyek CRUD Tabel Paspor**
 
 ### **Deskripsi**
-Proyek ini diimplementasikan menggunakan Java dengan lingkungan pengembangan NetBeans dan terhubung ke database PostgreSQL. Program ini memungkinkan pengguna untuk melakukan operasi CRUD pada tabel **Paspor**.
+Proyek ini diimplementasikan menggunakan Java NetBeans dan terhubung ke database PostgreSQL. Program ini memungkinkan pengguna untuk melakukan operasi CRUD pada tabel **Paspor**.
 Dalam kelas ini terdapat kode program CRUD (Create, Read, Update, Delete) yang mengelola tabel **Paspor** dari database **pertemuan4**. Tabel **Paspor** berisi kolom-kolom berikut:
 
 - **id_Paspor**: ID unik untuk setiap paspor.
@@ -28,44 +28,20 @@ Dalam kelas ini terdapat kode program CRUD (Create, Read, Update, Delete) yang m
 - **tanggal_kedaluarsa**: Tanggal kedaluwarsa paspor (format: YYYY-MM-DD).
 - **negara_penerbit**: Negara yang menerbitkan paspor.
 
-## **Class AnisaException**
+## **Kelas TryCatch**
 
-### **Deskripsi:**
-Kelas **AnisaException** merupakan subclass dari Exception, yang dirancang untuk melempar dan menangkap kesalahan yang spesifik dalam aplikasi. Kelas ini memiliki konstruktor yang menerima parameter String message dan memanggil konstruktor superclass (super(message)) untuk menyimpan pesan kesalahan.
-
-### **Implementasi**
-
-Dalam metode main, terdapat blok try-catch yang mendemonstrasikan penggunaan AnisaException:
-
-1. **Blok Try**: 
-   - Sebuah instance dari AnisaException dilempar dengan pesan "Ini adalah pesan yang salah". 
-   - Pembuatan dan pelemparan exception kustom dilakukan dengan:
-     throw new AnisaException("Ini adalah pesan yang salah");
-    
-
-2. **Blok Catch**: 
-   - Menangkap AnisaException yang dilempar dalam blok try.
-   - Ketika exception ditangkap, program mencetak "Exception ditangkap:" ke aliran kesalahan (System.err).
-   - Pesan kesalahan diambil dari exception menggunakan e.getMessage(), yang dalam hal ini adalah "Ini adalah pesan yang salah".
+### **_Deskripsi_:**
+Kelas TryCatch ini mengimplementasikan penanganan exception dengan jenis ArithmeticException. Dalam kode program ini berisi studi kasus menghitung keuntungan dengan exception keuntungan tidak boleh nol atau negatif. kode menerima dua parameter yakni pendapatan dan biaya. Pada blok try menghitung keuntungan yang diperoleh dari pendapatan dikurangi biaya dan mengecek apakah keuntungan <= 0 Jika ya, melempar ArithmeticException dengan pesan "Keuntungan tidak boleh nol atau negatif." Jika keuntungan valid, mencetak nilai keuntungan. Pada blok catch Menangkap ArithmeticException jika terjadi dan Mencetak pesan error yang diambil dari exception. Program tersebut mencetak pesan error: “Keuntungan tidak boleh nol atau negatif” karena 50000-60000 = -10000 yang artinya rugi 10000
 ___
-## **Class BelajarException**
+## **Kelas Throws**
 
-### **Deskripsi:**
-Kelas **BelajarException** berisi metode untuk melakukan pembagian dan menangani potensi kesalahan yang terkait dengan operasi pembagian. Kelas ini dirancang untuk mendemonstrasikan penggunaan pengecualian dalam Java, khususnya pengecualian aritmatika.
-  
-### **Implementasi**
+### **_Deskripsi:_**
+Kelas Throws ini mengimplementasikan penanganan exception dengan jenis ArithmeticException dengan studi kasus menghitung keuntungan yang tidak boleh nol atau negatif. Kode program ini menerima dua parameter yakni pendapatan dan biaya. Keuntungan diperoleh dari pendapatan dikurangi biaya. Keuntungan tidak boleh <= 0. Jika keuntungan tidak valid (bernilai <=0), metode melemparkan ArithmeticException dan program akan mencetak output “Keuntungan tidak boleh nol atau negatif”. Jika keuntungan bernilai valid maka program akan mencetak hasil keuntungan. Dalam kasus tersebut mencetak “Keuntungan tidak boleh nol atau negatif” karena 50000-60000 = -10000  yang berarti rugi 10000.
+___
+### **Kelas AnisaException**
 
-1. **Metode bagi(int a, int b)**:
-   - Menerima dua parameter: a dan b.
-   - Menggunakan throws ArithmeticException untuk menandakan bahwa pengecualian dapat terjadi.
-   - Jika b adalah 0, metode ini melempar ArithmeticException dengan pesan "Pembagi tidak boleh nol!".
-   - Jika b tidak 0, hasil pembagian a / b dicetak ke konsol.
+### **_Deskripsi:_**
+Kelas AnisaException merupakan kelas exception custom yang mengextends ArithmeticException, digunakan untuk menangani kondisi di mana keuntungan tidak valid (bernilai nol atau negatif). Dalam metode hitungKeuntungan, program menghitung keuntungan dengan mengurangkan biaya dari pendapatan. input pertama di definisikan sebagai pendapatan dan input kedua di definisikan sebagai biaya. Jika keuntungan bernilai <=0, metode melemparkan AnisaException dengan pesan error: “Keuntungan tidak boleh nol atau negatif”. Di dalam metode main, dilakukan dua percobaan: pertama, menghitung keuntungan dari input 1000 dan 1500, yang akan menghasilkan exception karena keuntungan bernilai negatif. Kedua, menghitung keuntungan dari input 2000 dan 1000, yang bernilai valid dan mencetak hasil keuntungan  sebesar 1000 . 
 
-2. **Metode main**:
-   - Membuat instance dari BelajarException.
-   - Blok try pertama memanggil belajar.bagi(10, 5), yang valid dan hasilnya 2 dicetak ke konsol.
-   - Blok try kedua memanggil belajar.bagi(10, 0), yang melempar ArithmeticException.
-   - Blok catch menangkap pengecualian dan mencetak pesan kesalahan menggunakan e.getMessage().
-     
 
 
